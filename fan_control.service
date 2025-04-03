@@ -1,0 +1,11 @@
+[Unit]
+Description=controls pwm fan using pigpio
+
+[Service]
+Type=simple
+ExecStart=/home/pi/fan_control
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
