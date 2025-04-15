@@ -2,9 +2,16 @@
 
 Controls a PWM fan connected to a Raspberry Pi 4B. Uses pigpio library and tweaks PWM signal/fan speed accordingly depending on APU temperature. Make sure your fan's PWM output wire is connected to GPIO18 (Pin #12)
 
-You can compile the C file using ```gcc fan.c -o fan_control -lpigpio -lrt -lpthread``` which gives you a fan_control executable. The service daemon (```fan_control.service```) should be placed in ```/etc/systemd/system/fan_control.service```. Once the daemon is started, it calls the executable file which should be in your home directory. 
+Install using Makefile:
+- Install pigpio by running ```sudo apt install pigpio```
+- Clone the repository to your Pi
+- Run the Makefile by ```make install``` 
+- This compiles the C file and sets up the service daemon
 
-Installation:
+
+You can also compile the C file manually using ```gcc fan.c -o fan_control -lpigpio -lrt -lpthread``` which gives you a fan_control executable. The service daemon (```fan_control.service```) should be placed in ```/etc/systemd/system/fan_control.service```. Once the daemon is started, it calls the executable file which should be in your home directory. 
+
+Manual Installaion: 
 - Install pigpio by running ```sudo apt install pigpio```
 - Clone the repository to your Pi
 - You can choose to use the already compiled exectuable or compile on your own using ```gcc fan.c -o fan_control -lpigpio -lrt -lpthread```
